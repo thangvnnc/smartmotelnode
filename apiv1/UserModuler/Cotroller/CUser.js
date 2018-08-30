@@ -67,4 +67,24 @@ CUser.parser = (data) => {
     return cUser;
 };
 
+/**
+ * Hàm tạo model db
+ * @returns {{id: NumberConstructor, code: NumberConstructor, username: StringConstructor, password: StringConstructor, name: StringConstructor, email: StringConstructor, phone: StringConstructor, birthDay: StringConstructor, createAt: NumberConstructor, updateAt: NumberConstructor, dateUpdatePassword: NumberConstructor}}
+ */
+CUser.getModelDB = () => {
+    return {
+        id : Number,
+        code : Number,
+        username : String,
+        password : String,
+        name : String,
+        email : String,
+        phone : String,
+        birthDay : String,
+        createAt : Number,
+        updateAt : Number,
+        dateUpdatePassword : Number
+    }
+};
+
 module.exports = CUser;
