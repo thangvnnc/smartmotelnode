@@ -1,5 +1,5 @@
 "use strict";
-const User          = require("../Model/User");
+const User          = require("../Model/User")
 const Error         = require("../Define/Error");
 class CUser extends User{
     constructor() {
@@ -81,9 +81,9 @@ CUser.getModelDB = () => {
         email : String,
         phone : String,
         birthDay : String,
-        createAt : Number,
-        updateAt : Number,
-        dateUpdatePassword : Number
+        createAt : String,
+        updateAt : String,
+        dateUpdatePassword : String
     }
 };
 

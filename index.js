@@ -6,8 +6,8 @@ const apiv1         = require("./apiv1");
 const app           = express();
 const PORT          = 1234;
 const mongoose      = require("mongoose");
-const URL           = "mongodb://192.168.1.110:27017/smartmotel";
-//const URL           = "mongodb://thang:thang01652608118@ds237192.mlab.com:37192/smartmotel";
+// const URL           = "mongodb://192.168.1.110:27017/smartmotel";
+const URL           = "mongodb://thang:thang01652608118@ds237192.mlab.com:37192/smartmotel";
 mongoose.connect(URL, { useNewUrlParser: true });
 
 app.use(bodyParser.json());

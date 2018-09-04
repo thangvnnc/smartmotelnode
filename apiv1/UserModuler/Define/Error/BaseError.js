@@ -6,7 +6,7 @@ class BaseError{
     constructor(code, response, message){
         this.code       = code;
         this.message    = message;
-	this.response   = response;
+	    this.response   = response;
     }
 
     static from(code, response, message){
