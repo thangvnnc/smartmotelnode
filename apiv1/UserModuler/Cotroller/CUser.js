@@ -87,4 +87,40 @@ CUser.getModelDB = () => {
     }
 };
 
+/////////////////////////////////////////////////////////////////////////////////////
+/**
+ * Hàm lưu session User
+ * @param request : request data
+ * @param cUser : user cần save
+ */
+CUser.saveSession = (request, cUser) => {
+    /** @namespace request.session */
+    request.session.userSession = cUser;
+};
+
+
+CUser.deleteSession = (request) => {
+    /** @namespace request.session */
+    delete request.session.userSession;
+};
+
+/**
+ * Hàm lấy thông tin user từ session
+ * @param request : request data
+ * @returns {CUser} : thông tin user lưu session
+ */
+CUser.getSession = (request) => {
+    /** @namespace request.userSession */
+    return request.session.userSession;
+};
+
+CUser.Auth = (request, response, next) => {
+    /** @namespace request.session.userSession */
+    if (request.session.userSession !== undefined){
+        next();
+    }
+    else{
+        response.send(Error.ERR_AUTH_USER())
+    }
+};
 module.exports = CUser;

@@ -71,12 +71,15 @@ router.get("/login", async(req, res) => {
     let dataReq = req.query;
     let cUser = CUser.parser(dataReq);
     try {
+        // Lấy thông tin user đăng nhập
         let data = await DBUsers.findOne()
             .where("username").equals(cUser.username)
             .where("password").equals(cUser.password);
         if (data !== null){
-            res.send(Error.OK(CUser.parser(data._doc)));
-            return;
+            // Lưu session user đăng nhập
+            let cUser = CUser.parser(data._doc);
+            CUser.saveSession(req, cUser);
+            res.send(Error.OK(cUser));
         }
         else {
             res.send(Error.ERR_EXEC_DB_NOT_EXIST(cUser.username));
@@ -85,6 +88,15 @@ router.get("/login", async(req, res) => {
     catch (err) {
         res.send(Error.ERR_EXECUTE_DB(err + ""));
     }
+});
+
+router.get("/logout", async(req, res) => {
+    CUser.deleteSession(req);
+    res.send(Error.OK());
+});
+
+router.get("/checkSession", CUser.Auth, async(req, res) => {
+    res.send("Have session user : " + req.session.userSession.username);
 });
 
 module.exports = router;
