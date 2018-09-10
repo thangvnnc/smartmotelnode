@@ -1,6 +1,8 @@
 "use strict";
 const User          = require("../Model/User");
 const Error         = require("../Define/Error");
+const CBase         = require("./CBase");
+
 class CUser extends User{
     constructor() {
         super();
@@ -15,24 +17,19 @@ class CUser extends User{
     isValidRegister() {
         // Kiểm tra field null
         let arrayField = ["username", "password", "name"];
-        return this.isFieldsNotNull(arrayField)
+        return CBase.isFieldsNotNull(this, arrayField)
     }
 
     /**
-     * Kiểm tra các trường không phải là null và undefined
-     * @param fields : string[] sách các field cần kiểm tra
+     * Kiểm tra dữ liệu hợp lệ để đăng nhập
      * @returns {Error}
      *      OK : Thành công
-     *      !OK : Thất bại vui lòng xem định nghĩa ở fileError
+     *      !OK : Xem lỗi ở Error
      */
-    isFieldsNotNull(fields) {
-        for(let fieldId in fields){
-            let field = fields[fieldId];
-            if (this[field] === null || this[field] === undefined) {
-                return Error.ERR_FIELD_NULL(field);
-            }
-        }
-        return Error.OK(this);
+    isValidLogin() {
+        // Kiểm tra field null
+        let arrayField = ["username", "password"];
+        return CBase.isFieldsNotNull(this, arrayField)
     }
 
     /**
@@ -54,16 +51,19 @@ class CUser extends User{
  * @returns {CUser} : controller user
  */
 CUser.parser = (data) => {
-
     // Kiểm tra đầu vào parser là null thì trả về null
-    if (data === null || data === undefined)
-    {
+    if (data === null || data === undefined) {
         return null;
     }
 
     // Đọc dữ liệu user từ data object
-    var cUser = new CUser();
+    let cUser = new CUser();
     Object.assign(cUser, data);
+    if (cUser.password !== null){
+        if (cUser.password.length !== 128) {
+            cUser.password = CBase.encodeSha512(cUser.password);
+        }
+    }
     return cUser;
 };
 
@@ -73,8 +73,8 @@ CUser.parser = (data) => {
  */
 CUser.getModelDB = () => {
     return {
-        id : Number,
-        code : Number,
+        id : String,
+        code : String,
         username : String,
         password : String,
         name : String,
@@ -123,4 +123,17 @@ CUser.Auth = (request, response, next) => {
         response.send(Error.ERR_AUTH_USER())
     }
 };
+
+/**
+ * Kiểm tra dữ liệu hợp lệ để đổi mật khẩu
+ * @returns {Error}
+ *      OK : Thành công
+ *      !OK : Xem lỗi ở Error
+ */
+CUser.isValidChangePassword = (dataReq) => {
+    // Kiểm tra field null
+    let arrayField = ["passwordOld", "passwordNew"];
+    return CBase.isFieldsNotNull(dataReq, arrayField)
+};
+
 module.exports = CUser;
