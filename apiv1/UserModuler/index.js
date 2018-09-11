@@ -4,10 +4,13 @@ const mongoose      = require("mongoose");
 
 const CBase         = require("./Cotroller/CBase");
 const CUser         = require("./Cotroller/CUser");
+const CHistory      = require("./Cotroller/CHistory");
+const CLog          = require("./Cotroller/CLog");
 const Error         = require("./Define/Error");
 
 const Schema        = mongoose.Schema;
 const DBUsers       = mongoose.model("Users", new Schema(CUser.getModelDB(), { versionKey: false }));
+const DBHistorys    = mongoose.model("Historys", new Schema(CHistory.getModelDB(), { versionKey: false }));
 const router        = express.Router();
 
 router.get("/register", async (req, res) => {
@@ -37,7 +40,7 @@ router.get("/register", async (req, res) => {
 
     try {
         // Tạo mã id
-        cUser.id = CBase.formatDate(new Date(), "yyyyMMddHHmmssSSS");
+        cUser.id = CBase.timeNow();
 
         // Nếu không có mã code thì tạo mã code bằng username
         if (cUser.code === null){
@@ -45,7 +48,7 @@ router.get("/register", async (req, res) => {
         }
 
         // Tạo thời gian hiện tại
-        let timeNow = CBase.formatDate(new Date(), "yyyyMMddHHmmssSSS");
+        let timeNow = CBase.timeNow();
 
         // Kiểm tra khời tạo ngày create
         if (cUser.createAt === null){
@@ -111,8 +114,23 @@ router.get("/logout", CUser.Auth, async(req, res) => {
     res.send(Error.OK());
 });
 
+router.get("/forget", async (req, res) => {
+    let dataReq = req.query;
+
+    // Kiểm tra điều kiện quên mật khẩu
+    let retValid = CUser.isValidForgetPassword(dataReq);
+    if (retValid.code !== Error.CODE_OK){
+        res.send(retValid);
+        return;
+    }
+});
+
 router.get("/changePassword", CUser.Auth, async (req, res) => {
     let dataReq = req.query;
+
+    // Model chuẩn bị để lưu lịch sử thay đổi mật khẩu
+    let cHistory        = new CHistory();
+    cHistory.methodType = CHistory.MethodType().UPDATE;
 
     // Kiểm tra điều kiện đổi mật khẩu
     let retValid = CUser.isValidChangePassword(dataReq);
@@ -128,23 +146,36 @@ router.get("/changePassword", CUser.Auth, async (req, res) => {
     // Lấy thông tin user session
     let cUser = CUser.getSession(req);
 
+    // Set giá trị trước khi thay đổi password vào lịch sử
+    cHistory.setBefore(cUser);
+
     // Cập nhật password
     if (passwordOld === cUser.password){
-        let timeUpdate = CBase.formatDate(new Date(), "yyyyMMddHHmmssSSS");
+        let timeUpdate = CBase.timeNow();
         cUser.password = passwordNew;
         cUser.updateAt = timeUpdate;
         cUser.dateUpdatePassword = timeUpdate;
 
         try {
-            let data = await DBUsers.findOneAndUpdate(
+            let resultUpd = await DBUsers.findOneAndUpdate(
                 {id: cUser.id},
                 cUser,
                 {new: true, upsert: true});
-            let cUserUpd = CUser.parser(data._doc);
+            let cUserUpd = CUser.parser(resultUpd._doc);
 
             // Lưu lại session của user update
             CUser.saveSession(req, cUserUpd);
             res.send(Error.OK(cUserUpd));
+
+            // Set giá trị sau khi thay đổi password vào lịch sử
+            cHistory.setAfter(cUser);
+
+            // Tiến hành lưu thông tin lịch sử
+            try {
+                await DBHistorys.create(cHistory);
+            }catch (err) {
+                CLog.write(err + "");
+            }
             return;
         }
         catch (err) {
@@ -160,7 +191,37 @@ router.get("/changePassword", CUser.Auth, async (req, res) => {
 router.get("/changeUser", CUser.Auth, async (req, res) => {
     let dataReq = req.query;
 
+    // Model chuẩn bị để lưu lịch sử thay đổi mật khẩu
+    let cHistory        = new CHistory();
+    cHistory.methodType = CHistory.MethodType().UPDATE;
 
+    // Lấy thông tin của user cũ trong session
+    let cUserOld = CUser.getSession(req);
+    cHistory.setBefore(cUserOld);
+
+    // Lấy thông tin của user cần thay đổi
+    let cUserNew = CUser.parser(dataReq);
+
+    // Đổi thông tin các thuộc tính của user
+    let cUserUpdate = cUserOld.changeUser(cUserNew);
+    cHistory.setBefore(cUserUpdate);
+
+    try {
+        let data = await DBUsers.findOneAndUpdate(
+            {id: cUserUpdate.id},
+            cUserUpdate,
+            {new: true, upsert: true});
+        let cUserUpd = CUser.parser(data._doc);
+
+        // Lưu lại session của user update
+        CUser.saveSession(req, cUserUpd);
+        res.send(Error.OK(cUserUpd));
+        return;
+    }
+    catch (err) {
+        res.send(Error.ERR_EXECUTE_DB());
+        return;
+    }
 });
 
 router.get("/checkSession", CUser.Auth, async(req, res) => {

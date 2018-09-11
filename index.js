@@ -41,36 +41,3 @@ app.listen(PORT, (err) =>{
         console.log("Server listen " + ip.address() + ": " + PORT);
     }
 });
-
-const nodemailer = require("nodemailer");
-let sendEmail = function(){
-    let smtpConfig = {
-        host: 'smtp.gmail.com',
-        port: 465,
-        secure: true, // use SSL,
-                      // you can try with TLS, but port is then 587
-        auth: {
-            user: 'thangdeveloper1509@gmail.com', // Your email id
-            pass: '01667723137' // Your password
-        }
-    };
-
-    let transporter = nodemailer.createTransport(smtpConfig);
-    // replace hardcoded options with data passed (somedata)
-    let mailOptions = {
-        from: 'thangdeveloper1509@gmail.com', // sender address
-        to: 'thangvnnc@gmail.com', // list of receivers
-        subject: 'Test email', // Subject line
-        text: 'this is some text', //, // plaintext body
-        html: '<b>Hello world ✔</b>' // You can choose to send an HTML body instead
-    };
-
-    transporter.sendMail(mailOptions, function(error, info){
-        if(error){
-            return false;
-        }else{
-            console.log('Message sent: ' + info.response);
-            return true;
-        }
-    });
-};

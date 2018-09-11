@@ -9,6 +9,10 @@ CBase.encodeSha512 = (string) => {
     return crypto.createHash("sha512").update(string).digest('hex');
 };
 
+CBase.timeNow = () => {
+    return CBase.formatDate(new Date(), "yyyyMMddHHmmssSSS");
+};
+
 CBase.formatDate = (date, format, utc) => {
     let MMMM = ["\x00", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
     let MMM = ["\x01", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
