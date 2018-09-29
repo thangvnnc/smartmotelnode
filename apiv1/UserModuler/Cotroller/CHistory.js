@@ -2,7 +2,7 @@
 const History       = require("../Model/History");
 const CBase         = require("./CBase");
 
-class CHistory extends History {
+class CHistory extends History{
     constructor() {
         super();
     }
@@ -39,6 +39,7 @@ class CHistory extends History {
      */
     static getModelDB() {
         return {
+            id          : String,
             clazz       : String,
             beforeData  : String,
             afterData   : String,

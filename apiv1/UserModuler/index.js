@@ -6,6 +6,7 @@ const CBase         = require("./Cotroller/CBase");
 const CUser         = require("./Cotroller/CUser");
 const CHistory      = require("./Cotroller/CHistory");
 const CLog          = require("./Cotroller/CLog");
+const CMailer       = require("./Cotroller/CMailer");
 const Error         = require("./Define/Error");
 
 const Schema        = mongoose.Schema;
@@ -123,6 +124,8 @@ router.get("/forget", async (req, res) => {
         res.send(retValid);
         return;
     }
+
+    
 });
 
 router.get("/changePassword", CUser.Auth, async (req, res) => {
@@ -172,6 +175,7 @@ router.get("/changePassword", CUser.Auth, async (req, res) => {
 
             // Tiến hành lưu thông tin lịch sử
             try {
+                cHistory.id = CBase.timeNow();
                 await DBHistorys.create(cHistory);
             }catch (err) {
                 CLog.write(err + "");
@@ -204,7 +208,7 @@ router.get("/changeUser", CUser.Auth, async (req, res) => {
 
     // Đổi thông tin các thuộc tính của user
     let cUserUpdate = cUserOld.changeUser(cUserNew);
-    cHistory.setBefore(cUserUpdate);
+    cHistory.setAfter(cUserUpdate);
 
     try {
         let data = await DBUsers.findOneAndUpdate(

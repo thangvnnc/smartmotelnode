@@ -33,17 +33,17 @@ class CUser extends User {
         return CBase.isFieldsNotNull(this, arrayField)
     }
 
-    /**
-     * Lấy danh sách fields
-     * @returns {Array} : Danh sách các field của model
-     */
-    getFields() {
-        let fields = [];
-        for (let attr in this) {
-            fields.push(attr);
-        }
-        return fields;
-    }
+    // /**
+    //  * Lấy danh sách fields
+    //  * @returns {Array} : Danh sách các field của model
+    //  */
+    // getFields() {
+    //     let fields = [];
+    //     for (let attr in this) {
+    //         fields.push(attr);
+    //     }
+    //     return fields;
+    // }
 
     /**
      *

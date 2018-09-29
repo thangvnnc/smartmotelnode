@@ -92,4 +92,19 @@ CBase.isFieldsNotNull = (object, fields) => {
     return Error.OK(object);
 };
 
+CBase.makeCodeReqMail = () => {
+    let possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    let code = "";
+
+    for(let i = 0; i < 6; i++){
+        code += possible.charAt(Math.floor(Math.random() * possible.length));
+    }
+
+    return code;
+};
+
+CBase.Status = ()  => {
+    return Object.freeze({UPDATE: 0, DELETE: 1});
+};
+
 module.exports = CBase;
