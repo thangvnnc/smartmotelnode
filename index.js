@@ -24,6 +24,7 @@ app.use(session({
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(__dirname + "/public"));
+app.use("/administrator", express.static(__dirname + "/administrator"));
 
 app.all("*", (req, res, next) => {
     next();
@@ -32,12 +33,10 @@ app.all("*", (req, res, next) => {
 app.use("/apiv1", apiv1);
 
 app.listen(PORT, (err) =>{
-    if (err !== undefined)
-    {
+    if (err !== undefined) {
         console.log(err);
     }
-    else
-    {
+    else {
         console.log("Server listen " + ip.address() + ": " + PORT);
     }
 });

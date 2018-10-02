@@ -12,8 +12,10 @@ class CGroup extends Group {
         return {
             id          : String,
             name        : String,
-            status      : Number,
-            createAt    : String
+            createAt    : String,
+            price       : Number,
+            percent     : Number,
+            status      : Number
         }
     };
 }
