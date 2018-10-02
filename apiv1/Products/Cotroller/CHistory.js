@@ -14,7 +14,7 @@ class CHistory extends History{
 
     setAfter(data) {
         this.afterData  = JSON.stringify(data);
-        this.timeAt     = CBase.timeNow();
+        this.createAt   = CBase.timeNow();
     }
 
     // /**
@@ -44,7 +44,7 @@ class CHistory extends History{
             beforeData  : String,
             afterData   : String,
             methodType  : Number,
-            timeAt      : String
+            createAt    : String
         }
     };
 }

@@ -8,16 +8,13 @@ class CGroup extends Group {
         super();
     }
 
-    /**
-     * Thông tin db
-     * @returns {{beforeData: StringConstructor, afterData: StringConstructor, methodType: NumberConstructor, timeAt: StringConstructor}}
-     */
+
     static getModelDB() {
         return {
             id          : String,
             name        : String,
             status      : Number,
-            timeAt      : String
+            createAt    : String
         }
     };
 }

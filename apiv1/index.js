@@ -1,7 +1,7 @@
 "use strict";
 const express       = require("express");
 const app           = express();
-const user          = require("./UserModuler");
+const user          = require("./Products");
 
 app.use("/users", user);
 

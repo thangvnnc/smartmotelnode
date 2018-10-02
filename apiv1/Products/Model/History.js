@@ -8,7 +8,7 @@ class History{
         this.methodType     = null;
         this.beforeData     = null;
         this.afterData      = null;
-        this.timeAt         = null;
+        this.createAt       = null;
     }
 
     static MethodType() {
