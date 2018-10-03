@@ -5,9 +5,9 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="apple-touch-icon" sizes="76x76" href="img/apple-icon.png">
-    <link rel="icon" type="image/png" href="img/favicon.png">
+    <link rel="icon" type="image/png" href="img/favicon.gif">
     <title>
-        Black Dashboard by Creative Tim
+        Administrator
     </title>
     <!--     Fonts and icons     -->
     <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet"/>
@@ -16,8 +16,9 @@
     <link href="css/nucleo-icons.css" rel="stylesheet"/>
     <!-- CSS Files -->
     <link href="css/black-dashboard.css?v=1.0.0" rel="stylesheet"/>
+    <link href="css/admin/admin.css" rel="stylesheet"/>
     <!-- CSS Just for demo purpose, don't include it in your project -->
-    <link href="demo/demo.css" rel="stylesheet"/>
+    <!--<link href="demo/demo.css" rel="stylesheet"/>-->
 </head>
 
 <body class="">
@@ -51,27 +52,27 @@
                             </div>
                         </div>
                         <div class="card-body">
-                            <form>
+                            <form onsubmit="return false;" class="login-form">
                             <div class="row">
                                 <div class="col-md-12 form-login">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Username" value="">
+                                        <input type="text" class="form-control edt-username" placeholder="Username" value="">
                                     </div>
                                     <div class="form-group">
-                                        <input type="password" class="form-control" placeholder="Password" value="">
+                                        <input type="password" class="form-control edt-password" placeholder="Password" value="">
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-6 text-left form-check-login form-check">
                                     <label class="form-check-label">
-                                        <input class="form-check-input" type="checkbox" value="" checked>
+                                        <input class="form-check-input chk-remember" type="checkbox" value="" checked>
                                         <span class="form-check-sign">
                                     </span>
                                         Remember
                                     </label>
                                 </div>
-                                <div class="col-md-6 text-right">
+                                <div class="col-md-6 text-right login-btn">
                                     <button type="submit" class="btn btn-fill btn-primary">Login</button>
                                 </div>
                             </div>
@@ -84,23 +85,23 @@
         </div>
         <footer class="footer">
             <div class="container-fluid">
-                <ul class="nav">
-                    <li class="nav-item">
-                        <a href="javascript:void(0)" class="nav-link">
-                            Creative Tim
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="javascript:void(0)" class="nav-link">
-                            About Us
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="javascript:void(0)" class="nav-link">
-                            Blog
-                        </a>
-                    </li>
-                </ul>
+                <!--<ul class="nav">-->
+                    <!--<li class="nav-item">-->
+                        <!--<a href="javascript:void(0)" class="nav-link">-->
+                            <!--Creative Tim-->
+                        <!--</a>-->
+                    <!--</li>-->
+                    <!--<li class="nav-item">-->
+                        <!--<a href="javascript:void(0)" class="nav-link">-->
+                            <!--About Us-->
+                        <!--</a>-->
+                    <!--</li>-->
+                    <!--<li class="nav-item">-->
+                        <!--<a href="javascript:void(0)" class="nav-link">-->
+                            <!--Blog-->
+                        <!--</a>-->
+                    <!--</li>-->
+                <!--</ul>-->
                 <div class="copyright">
                     ©
                     <script>
@@ -113,51 +114,51 @@
         </footer>
     </div>
 </div>
-<div class="fixed-plugin">
-    <div class="dropdown show-dropdown">
-        <a href="#" data-toggle="dropdown">
-            <i class="fa fa-cog fa-2x"> </i>
-        </a>
-        <ul class="dropdown-menu">
-            <li class="header-title"> Sidebar Background</li>
-            <li class="adjustments-line">
-                <a href="javascript:void(0)" class="switch-trigger background-color">
-                    <div class="badge-colors text-center">
-                        <span class="badge filter badge-primary active" data-color="primary"></span>
-                        <span class="badge filter badge-info" data-color="blue"></span>
-                        <span class="badge filter badge-success" data-color="green"></span>
-                    </div>
-                    <div class="clearfix"></div>
-                </a>
-            </li>
-            <li class="adjustments-line text-center color-change">
-                <span class="color-label">LIGHT MODE</span>
-                <span class="badge light-badge mr-2"></span>
-                <span class="badge dark-badge ml-2"></span>
-                <span class="color-label">DARK MODE</span>
-            </li>
-            <li class="button-container">
-                <a href="https://www.creative-tim.com/product/black-dashboard" target="_blank"
-                   class="btn btn-primary btn-block btn-round">Download Now</a>
-                <a href="https://demos.creative-tim.com/black-dashboard/docs/1.0/getting-started/introduction.html"
-                   target="_blank" class="btn btn-default btn-block btn-round">
-                    Documentation
-                </a>
-            </li>
-            <li class="header-title">Thank you for 95 shares!</li>
-            <li class="button-container text-center">
-                <button id="twitter" class="btn btn-round btn-info"><i class="fab fa-twitter"></i> &middot; 45</button>
-                <button id="facebook" class="btn btn-round btn-info"><i class="fab fa-facebook-f"></i> &middot; 50
-                </button>
-                <br>
-                <br>
-                <a class="github-button" href="https://github.com/creativetimofficial/black-dashboard"
-                   data-icon="octicon-star" data-size="large" data-show-count="true"
-                   aria-label="Star ntkme/github-buttons on GitHub">Star</a>
-            </li>
-        </ul>
-    </div>
-</div>
+<!--<div class="fixed-plugin">-->
+    <!--<div class="dropdown show-dropdown">-->
+        <!--<a href="#" data-toggle="dropdown">-->
+            <!--<i class="fa fa-cog fa-2x"> </i>-->
+        <!--</a>-->
+        <!--<ul class="dropdown-menu">-->
+            <!--<li class="header-title"> Sidebar Background</li>-->
+            <!--<li class="adjustments-line">-->
+                <!--<a href="javascript:void(0)" class="switch-trigger background-color">-->
+                    <!--<div class="badge-colors text-center">-->
+                        <!--<span class="badge filter badge-primary active" data-color="primary"></span>-->
+                        <!--<span class="badge filter badge-info" data-color="blue"></span>-->
+                        <!--<span class="badge filter badge-success" data-color="green"></span>-->
+                    <!--</div>-->
+                    <!--<div class="clearfix"></div>-->
+                <!--</a>-->
+            <!--</li>-->
+            <!--<li class="adjustments-line text-center color-change">-->
+                <!--<span class="color-label">LIGHT MODE</span>-->
+                <!--<span class="badge light-badge mr-2"></span>-->
+                <!--<span class="badge dark-badge ml-2"></span>-->
+                <!--<span class="color-label">DARK MODE</span>-->
+            <!--</li>-->
+            <!--<li class="button-container">-->
+                <!--<a href="https://www.creative-tim.com/product/black-dashboard" target="_blank"-->
+                   <!--class="btn btn-primary btn-block btn-round">Download Now</a>-->
+                <!--<a href="https://demos.creative-tim.com/black-dashboard/docs/1.0/getting-started/introduction.html"-->
+                   <!--target="_blank" class="btn btn-default btn-block btn-round">-->
+                    <!--Documentation-->
+                <!--</a>-->
+            <!--</li>-->
+            <!--<li class="header-title">Thank you for 95 shares!</li>-->
+            <!--<li class="button-container text-center">-->
+                <!--<button id="twitter" class="btn btn-round btn-info"><i class="fab fa-twitter"></i> &middot; 45</button>-->
+                <!--<button id="facebook" class="btn btn-round btn-info"><i class="fab fa-facebook-f"></i> &middot; 50-->
+                <!--</button>-->
+                <!--<br>-->
+                <!--<br>-->
+                <!--<a class="github-button" href="https://github.com/creativetimofficial/black-dashboard"-->
+                   <!--data-icon="octicon-star" data-size="large" data-show-count="true"-->
+                   <!--aria-label="Star ntkme/github-buttons on GitHub">Star</a>-->
+            <!--</li>-->
+        <!--</ul>-->
+    <!--</div>-->
+<!--</div>-->
 <!--   Core JS Files   -->
 <script src="js/core/jquery.min.js"></script>
 <script src="js/core/popper.min.js"></script>
@@ -165,13 +166,15 @@
 <script src="js/plugins/perfect-scrollbar.jquery.min.js"></script>
 <!-- Place this tag in your head or just before your close body tag. -->
 <!-- Chart JS -->
-<script src="js/plugins/chartjs.min.js"></script>
+<!--<script src="js/plugins/chartjs.min.js"></script>-->
 <!--  Notifications Plugin    -->
 <script src="js/plugins/bootstrap-notify.js"></script>
 <!-- Control Center for Black Dashboard: parallax effects, scripts for the example pages etc -->
 <script src="js/black-dashboard.min.js?v=1.0.0"></script>
+<script src="js/admin/common.js"></script>
+<script src="js/admin/admin.js"></script>
 <!-- Black Dashboard DEMO methods, don't include it in your project! -->
-<script src="demo/demo.js"></script>
+<!--<script src="demo/demo.js"></script>-->
 <script>
     $(document).ready(function () {
         $sidebar = $('.sidebar');
