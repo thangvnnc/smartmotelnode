@@ -1,5 +1,4 @@
 "use strict";
-
 class Cart{
     constructor() {
         this.id             = null;

@@ -14,16 +14,6 @@ const DBUsers       = mongoose.model("Users", new Schema(CUser.getModelDB(), { v
 const DBHistorys    = mongoose.model("Historys", new Schema(CHistory.getModelDB(), { versionKey: false }));
 const router        = express.Router();
 
-router.use("/administrator", async (req, res) => {
-    console.log(req.originalUrl);
-    if (req.session.userSession !== undefined) {
-        res.redirect("/admin/dashboard.html");
-    }
-    else {
-        res.redirect("/admin/login.html");
-    }
-});
-
 router.post("/register", async (req, res) => {
     // Lấy dữ liệu từ client request
     let dataReq = req.body;
@@ -61,19 +51,19 @@ router.post("/register", async (req, res) => {
         // Tạo thời gian hiện tại
         let timeNow = CBase.timeNow();
 
-        // Kiểm tra khời tạo ngày create
-        if (cUser.createAt === null){
-            cUser.createAt = timeNow;
-        }
-
-        // Kiểm tra khởi tạo ngày update
-        if (cUser.updateAt === null){
-            cUser.updateAt = timeNow;
+        // Kiểm tra khởi tạo quyền user
+        if (cUser.rights === null){
+            cUser.rights = CUser.Rights().USER;
         }
 
         // Kiểm tra khởi tạo ngày update password
         if (cUser.dateUpdatePassword === null){
             cUser.dateUpdatePassword = timeNow;
+        }
+
+        // Kiểm tra khời tạo ngày create
+        if (cUser.createAt === null){
+            cUser.createAt = timeNow;
         }
 
         // Thêm dữ liệu vào db
@@ -120,7 +110,7 @@ router.post("/login", async(req, res) => {
     }
 });
 
-router.post("/logout", CUser.Auth, async(req, res) => {
+router.post("/logout", CUser.AuthApi, async(req, res) => {
     CUser.deleteSession(req);
     res.send(Error.OK());
 });
@@ -138,7 +128,7 @@ router.post("/forget", async (req, res) => {
     
 });
 
-router.post("/changePassword", CUser.Auth, async (req, res) => {
+router.post("/changePassword", CUser.AuthApi, async (req, res) => {
     let dataReq = req.body;
 
     // Model chuẩn bị để lưu lịch sử thay đổi mật khẩu
@@ -202,7 +192,7 @@ router.post("/changePassword", CUser.Auth, async (req, res) => {
     }
 });
 
-router.post("/changeUser", CUser.Auth, async (req, res) => {
+router.post("/changeUser", CUser.AuthApi, async (req, res) => {
     let dataReq = req.body;
 
     // Model chuẩn bị để lưu lịch sử thay đổi mật khẩu
@@ -238,7 +228,7 @@ router.post("/changeUser", CUser.Auth, async (req, res) => {
     }
 });
 
-router.post("/checkSession", CUser.Auth, async(req, res) => {
+router.post("/checkSession", CUser.AuthApi, async(req, res) => {
     res.send("Have session user : " + req.session.userSession.username);
 });
 

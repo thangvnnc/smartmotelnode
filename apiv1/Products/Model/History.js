@@ -1,7 +1,5 @@
 "use strict";
-
 class History{
-
     constructor() {
         this.id             = null;
         this.clazz          = null;

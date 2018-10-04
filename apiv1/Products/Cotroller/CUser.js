@@ -110,9 +110,9 @@ class CUser extends User {
             email: String,
             phone: String,
             birthDay: String,
-            createAt: String,
-            updateAt: String,
-            dateUpdatePassword: String
+            rights: Number,
+            dateUpdatePassword: String,
+            createAt: String
         }
     };
 
@@ -138,17 +138,39 @@ class CUser extends User {
      * @returns {CUser} : thông tin user lưu session
      */
     static getSession(request) {
-        /** @namespace request.userSession */
         return CUser.parser(request.session.userSession);
     };
 
-    static Auth(request, response, next) {
+    /**
+     * Auth api
+     * @param request : Api request
+     * @param response : Api response
+     * @param next : next continue route
+     * @constructor
+     */
+    static AuthApi(request, response, next) {
         /** @namespace request.session.userSession */
         if (request.session.userSession !== undefined) {
             next();
         }
         else {
-            response.send(Error.ERR_AUTH_USER())
+            response.send(Error.ERR_API_AUTH_USER())
+        }
+    };
+
+    /**
+     * Auth api
+     * @param request : request
+     * @param response : response
+     * @param next : next continue route
+     * @constructor
+     */
+    static AuthRoute(request, response, next) {
+        if (request.session.userSession === undefined) {
+            response.redirect("/login");
+        }
+        else {
+            next();
         }
     };
 

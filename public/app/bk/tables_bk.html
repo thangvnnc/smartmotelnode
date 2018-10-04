@@ -4,8 +4,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="apple-touch-icon" sizes="76x76" href="../img/apple-icon.png">
-  <link rel="icon" type="image/png" href="../img/favicon.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="../../common/img/apple-icon.png">
+  <link rel="icon" type="image/png" href="../../common/img/favicon.png">
   <title>
     Black Dashboard by Creative Tim
   </title>
@@ -13,9 +13,9 @@
   <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet" />
   <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
   <!-- Nucleo Icons -->
-  <link href="../css/nucleo-icons.css" rel="stylesheet" />
+  <link href="../../common/css/nucleo-icons.css" rel="stylesheet" />
   <!-- CSS Files -->
-  <link href="../css/black-dashboard.css?v=1.0.0" rel="stylesheet" />
+  <link href="../../common/css/black-dashboard.css?v=1.0.0" rel="stylesheet" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="../demo/demo.css" rel="stylesheet" />
 </head>
@@ -43,49 +43,49 @@
             </a>
           </li>
           <li>
-            <a href="../icons.html">
+            <a href="../../admin/icons.html">
               <i class="tim-icons icon-atom"></i>
               <p>Icons</p>
             </a>
           </li>
           <li>
-            <a href="../map.html">
+            <a href="../../admin/map.html">
               <i class="tim-icons icon-pin"></i>
               <p>Maps</p>
             </a>
           </li>
           <li>
-            <a href="../notifications.html">
+            <a href="../../admin/notifications.html">
               <i class="tim-icons icon-bell-55"></i>
               <p>Notifications</p>
             </a>
           </li>
           <li>
-            <a href="../user.html">
+            <a href="../../admin/user.html">
               <i class="tim-icons icon-single-02"></i>
               <p>User Profile</p>
             </a>
           </li>
-          <li>
-            <a href="../tables.html">
+          <li class="active ">
+            <a href="../../admin/tables.html">
               <i class="tim-icons icon-puzzle-10"></i>
               <p>Table List</p>
             </a>
           </li>
-          <li class="active ">
-            <a href="../typography.html">
+          <li>
+            <a href="../../admin/typography.html">
               <i class="tim-icons icon-align-center"></i>
               <p>Typography</p>
             </a>
           </li>
           <li>
-            <a href="../rtl.html">
+            <a href="../../admin/rtl.html">
               <i class="tim-icons icon-world"></i>
               <p>RTL Support</p>
             </a>
           </li>
           <li class="active-pro">
-            <a href="../upgrade.html">
+            <a href="../../admin/upgrade.html">
               <i class="tim-icons icon-spaceship"></i>
               <p>Upgrade to PRO</p>
             </a>
@@ -105,7 +105,7 @@
                 <span class="navbar-toggler-bar bar3"></span>
               </button>
             </div>
-            <a class="navbar-brand" href="javascript:void(0)">Typography</a>
+            <a class="navbar-brand" href="javascript:void(0)">Table List</a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -148,7 +148,7 @@
               <li class="dropdown nav-item">
                 <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                   <div class="photo">
-                    <img src="../img/anime3.png" alt="Profile Photo">
+                    <img src="../../common/img/anime3.png" alt="Profile Photo">
                   </div>
                   <b class="caret d-none d-lg-block d-xl-block"></b>
                   <p class="d-lg-none">
@@ -189,148 +189,260 @@
       <div class="content">
         <div class="row">
           <div class="col-md-12">
-            <div class="card">
-              <div class="card-header mb-5">
-                <h5 class="card-category">Black Table Heading</h5>
-                <h3 class="card-title">Created using Poppins Font Family</h3>
+            <div class="card ">
+              <div class="card-header">
+                <h4 class="card-title"> Simple Table</h4>
               </div>
               <div class="card-body">
-                <div class="typography-line">
-                  <h1>
-                    <span>Header 1</span>The Life of Black Dashboard </h1>
+                <div class="table-responsive">
+                  <table class="table tablesorter " id="">
+                    <thead class=" text-primary">
+                      <tr>
+                        <th>
+                          Name
+                        </th>
+                        <th>
+                          Country
+                        </th>
+                        <th>
+                          City
+                        </th>
+                        <th class="text-center">
+                          Salary
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>
+                          Dakota Rice
+                        </td>
+                        <td>
+                          Niger
+                        </td>
+                        <td>
+                          Oud-Turnhout
+                        </td>
+                        <td class="text-center">
+                          $36,738
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          Minerva Hooper
+                        </td>
+                        <td>
+                          Curaçao
+                        </td>
+                        <td>
+                          Sinaai-Waas
+                        </td>
+                        <td class="text-center">
+                          $23,789
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          Sage Rodriguez
+                        </td>
+                        <td>
+                          Netherlands
+                        </td>
+                        <td>
+                          Baileux
+                        </td>
+                        <td class="text-center">
+                          $56,142
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          Philip Chaney
+                        </td>
+                        <td>
+                          Korea, South
+                        </td>
+                        <td>
+                          Overland Park
+                        </td>
+                        <td class="text-center">
+                          $38,735
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          Doris Greene
+                        </td>
+                        <td>
+                          Malawi
+                        </td>
+                        <td>
+                          Feldkirchen in Kärnten
+                        </td>
+                        <td class="text-center">
+                          $63,542
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          Mason Porter
+                        </td>
+                        <td>
+                          Chile
+                        </td>
+                        <td>
+                          Gloucester
+                        </td>
+                        <td class="text-center">
+                          $78,615
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          Jon Porter
+                        </td>
+                        <td>
+                          Portugal
+                        </td>
+                        <td>
+                          Gloucester
+                        </td>
+                        <td class="text-center">
+                          $98,615
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
                 </div>
-                <div class="typography-line">
-                  <h2>
-                    <span>Header 2</span>The Life of Black Dashboard </h2>
-                </div>
-                <div class="typography-line">
-                  <h3>
-                    <span>Header 3</span>The Life of Black Dashboard </h3>
-                </div>
-                <div class="typography-line">
-                  <h4>
-                    <span>Header 4</span>The Life of Black Dashboard </h4>
-                </div>
-                <div class="typography-line">
-                  <h5>
-                    <span>Header 5</span>The Life of Black Dashboard </h5>
-                </div>
-                <div class="typography-line">
-                  <h6>
-                    <span>Header 6</span>The Life of Black Dashboard </h6>
-                </div>
-                <div class="typography-line">
-                  <p>
-                    <span>Paragraph</span>
-                    I will be the leader of a company that ends up being worth billions of dollars, because I got the answers. I understand culture. I am the nucleus. I think that’s a responsibility that I have, to push possibilities, to show people, this is the level that things could be at.
-                  </p>
-                </div>
-                <div class="typography-line">
-                  <span>Quote</span>
-                  <blockquote>
-                    <p class="blockquote blockquote-primary">
-                      "I will be the leader of a company that ends up being worth billions of dollars, because I got the answers. I understand culture. I am the nucleus. I think that’s a responsibility that I have, to push possibilities, to show people, this is the level that things could be at."
-                      <br>
-                      <br>
-                      <small>
-                        - Noaa
-                      </small>
-                    </p>
-                  </blockquote>
-                </div>
-                <div class="typography-line">
-                  <span>Muted Text</span>
-                  <p class="text-muted">
-                    I will be the leader of a company that ends up being worth billions of dollars, because I got the answers...
-                  </p>
-                </div>
-                <div class="typography-line">
-                  <span>Primary Text</span>
-                  <p class="text-primary">
-                    I will be the leader of a company that ends up being worth billions of dollars, because I got the answers...</p>
-                </div>
-                <div class="typography-line">
-                  <span>Info Text</span>
-                  <p class="text-info">
-                    I will be the leader of a company that ends up being worth billions of dollars, because I got the answers... </p>
-                </div>
-                <div class="typography-line">
-                  <span>Success Text</span>
-                  <p class="text-success">
-                    I will be the leader of a company that ends up being worth billions of dollars, because I got the answers... </p>
-                </div>
-                <div class="typography-line">
-                  <span>Warning Text</span>
-                  <p class="text-warning">
-                    I will be the leader of a company that ends up being worth billions of dollars, because I got the answers...
-                  </p>
-                </div>
-                <div class="typography-line">
-                  <span>Danger Text</span>
-                  <p class="text-danger">
-                    I will be the leader of a company that ends up being worth billions of dollars, because I got the answers... </p>
-                </div>
-                <div class="typography-line">
-                  <h2>
-                    <span>Small Tag</span>
-                    Header with small subtitle
-                    <br>
-                    <small>Use "small" tag for the headers</small>
-                  </h2>
-                </div>
-                <div class="typography-line">
-                  <span>Lists</span>
-                  <div class="row">
-                    <div class="col-md-3">
-                      <h5>Unordered List</h5>
-                      <ul>
-                        <li>List Item</li>
-                        <li>List Item</li>
-                        <li class="list-unstyled">
-                          <ul>
-                            <li>List Item</li>
-                            <li>List Item</li>
-                            <li>List Item</li>
-                          </ul>
-                        </li>
-                        <li>List Item</li>
-                      </ul>
-                    </div>
-                    <div class="col-md-3">
-                      <h5>Ordered List</h5>
-                      <ol>
-                        <li>List Item</li>
-                        <li>List Item</li>
-                        <li>List item</li>
-                        <li>List Item</li>
-                      </ol>
-                    </div>
-                    <div class="col-md-3">
-                      <h5>Unstyled List</h5>
-                      <ul class="list-unstyled">
-                        <li>List Item</li>
-                        <li>List Item</li>
-                        <li>List item</li>
-                        <li>List Item</li>
-                      </ul>
-                    </div>
-                    <div class="col-md-3">
-                      <h5>Inline List</h5>
-                      <ul class="list-inline">
-                        <li class="list-inline-item">List1</li>
-                        <li class="list-inline-item">List2</li>
-                        <li class="list-inline-item">List3</li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-                <div class="typography-line">
-                  <span>Code</span>
-                  <p>This is
-                    <code>.css-class-as-code</code>, an example of an inline code element. Wrap inline code within a
-                    <code> &lt;code&gt;...&lt;/code&gt;</code>tag.
-                  </p>
-                  <pre>1. #This is an example of preformatted text.<br/>2. #Here is another line of code</pre>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="card  card-plain">
+              <div class="card-header">
+                <h4 class="card-title"> Table on Plain Background</h4>
+                <p class="category"> Here is a subtitle for this table</p>
+              </div>
+              <div class="card-body">
+                <div class="table-responsive">
+                  <table class="table tablesorter " id="">
+                    <thead class=" text-primary">
+                      <tr>
+                        <th>
+                          Name
+                        </th>
+                        <th>
+                          Country
+                        </th>
+                        <th>
+                          City
+                        </th>
+                        <th class="text-center">
+                          Salary
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>
+                          Dakota Rice
+                        </td>
+                        <td>
+                          Niger
+                        </td>
+                        <td>
+                          Oud-Turnhout
+                        </td>
+                        <td class="text-center">
+                          $36,738
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          Minerva Hooper
+                        </td>
+                        <td>
+                          Curaçao
+                        </td>
+                        <td>
+                          Sinaai-Waas
+                        </td>
+                        <td class="text-center">
+                          $23,789
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          Sage Rodriguez
+                        </td>
+                        <td>
+                          Netherlands
+                        </td>
+                        <td>
+                          Baileux
+                        </td>
+                        <td class="text-center">
+                          $56,142
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          Philip Chaney
+                        </td>
+                        <td>
+                          Korea, South
+                        </td>
+                        <td>
+                          Overland Park
+                        </td>
+                        <td class="text-center">
+                          $38,735
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          Doris Greene
+                        </td>
+                        <td>
+                          Malawi
+                        </td>
+                        <td>
+                          Feldkirchen in Kärnten
+                        </td>
+                        <td class="text-center">
+                          $63,542
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          Mason Porter
+                        </td>
+                        <td>
+                          Chile
+                        </td>
+                        <td>
+                          Gloucester
+                        </td>
+                        <td class="text-center">
+                          $78,615
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          Jon Porter
+                        </td>
+                        <td>
+                          Portugal
+                        </td>
+                        <td>
+                          Gloucester
+                        </td>
+                        <td class="text-center">
+                          $98,615
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
                 </div>
               </div>
             </div>
@@ -408,19 +520,19 @@
     </div>
   </div>
   <!--   Core JS Files   -->
-  <script src="../js/core/jquery.min.js"></script>
-  <script src="../js/core/popper.min.js"></script>
-  <script src="../js/core/bootstrap.min.js"></script>
-  <script src="../js/plugins/perfect-scrollbar.jquery.min.js"></script>
+  <script src="../../common/js/core/jquery.min.js"></script>
+  <script src="../../common/js/core/popper.min.js"></script>
+  <script src="../../common/js/core/bootstrap.min.js"></script>
+  <script src="../../common/js/plugins/perfect-scrollbar.jquery.min.js"></script>
   <!--  Google Maps Plugin    -->
   <!-- Place this tag in your head or just before your close body tag. -->
   <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
   <!-- Chart JS -->
-  <script src="../js/plugins/chartjs.min.js"></script>
+  <script src="../../common/js/plugins/chartjs.min.js"></script>
   <!--  Notifications Plugin    -->
-  <script src="../js/plugins/bootstrap-notify.js"></script>
+  <script src="../../common/js/plugins/bootstrap-notify.js"></script>
   <!-- Control Center for Black Dashboard: parallax effects, scripts for the example pages etc -->
-  <script src="../js/black-dashboard.min.js?v=1.0.0"></script>
+  <script src="../../common/js/black-dashboard.min.js?v=1.0.0"></script>
   <!-- Black Dashboard DEMO methods, don't include it in your project! -->
   <script src="../demo/demo.js"></script>
   <script>

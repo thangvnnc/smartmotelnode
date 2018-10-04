@@ -10,9 +10,13 @@ class User{
         this.email              = null;
         this.phone              = null;
         this.birthDay           = null;
-        this.createAt           = null;
-        this.updateAt           = null;
+        this.rights             = null;
         this.dateUpdatePassword = null;
+        this.createAt           = null;
+    }
+
+    static Rights() {
+        return Object.freeze({USER: 0, ADMIN: 1});
     }
 }
 

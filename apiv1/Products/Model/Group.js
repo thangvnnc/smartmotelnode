@@ -1,5 +1,4 @@
 "use strict";
-
 class Group{
     constructor() {
         this.id             = null;
