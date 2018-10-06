@@ -175,6 +175,28 @@ class CUser extends User {
     };
 
     /**
+     * Auth api
+     * @param request : request
+     * @param response : response
+     * @param next : next continue route
+     * @constructor
+     */
+    static AuthRedirectLogin(request, response, next) {
+        if (request.session.userSession !== undefined) {
+            let cBase = CUser.getSession(request);
+            if (cBase.rights === CUser.Rights().ADMIN) {
+                response.redirect("/admin");
+            }
+            if (cBase.rights === CUser.Rights().USER) {
+                console.log("login user")
+            }
+        }
+        else {
+            next();
+        }
+    };
+
+    /**
      * Kiểm tra dữ liệu hợp lệ để đổi mật khẩu
      * @returns {Error}
      *      OK : Thành công

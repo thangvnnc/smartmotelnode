@@ -1,5 +1,11 @@
 
 $(document).ready(function () {
+    const MES_MODAL_TITLE_LOGIN = 'Đang xử lý';
+    const MES_MODAL_MESSAGE_LOGIN = 'Đang đăng nhập vui lòng chờ đợi...';
+
+    const MES_MODAL_TITLE_LOGIN_ERROR = 'Thông báo';
+    const MES_MODAL_MESSAGE_LOGIN_ERROR = 'Đăng nhập thất bại';
+
     /*********************************************************
      ********************** Process **************************
      *********************************************************/
@@ -17,9 +23,10 @@ $(document).ready(function () {
             password: edtPassword,
             remember: chkRemember
         };
-
+        showModalWait(MES_MODAL_TITLE_LOGIN, MES_MODAL_MESSAGE_LOGIN, false, false);
         $.ajax({
             type: "POST",
+            async: false,
             url: urlReqLogin,
             data: reqLogin,
             success: loginSuccess,
@@ -27,12 +34,24 @@ $(document).ready(function () {
         });
     }
 
-    function loginSuccess(res) {
-        console.log(res);
+    function loginSuccess(data, status, xhr) {
+        hideModalWait();
+        if (data.code === 0){
+            if (data.response.rights === 1) {
+                window.location.href = "/admin";
+            }
+            else {
+                window.location.href = "/app";
+            }
+        }
+        else {
+            showModalWait(MES_MODAL_TITLE_LOGIN_ERROR, MES_MODAL_MESSAGE_LOGIN_ERROR, true, true);
+        }
     }
 
-    function loginError(error) {
-        console.log(error);
+    function loginError(xhr, status, error) {
+        hideModalWait();
+        showModalWait(MES_MODAL_TITLE_LOGIN_ERROR, error, true, true);
     }
 
     /*********************************************************

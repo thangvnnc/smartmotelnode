@@ -30,14 +30,13 @@ app.use("/apiv1", apiv1);
 // Cấu hình route
 app.use("/app",     express.static(__dirname + "/public/app"));
 app.use("/common",  express.static(__dirname + "/public/common"));
-app.use("/login",   express.static(__dirname + "/public/login"));
-app.use("/admin",   CUser.AuthRoute, express.static(__dirname + "/public/admin"));
+app.use("/login",   CUser.AuthRedirectLogin,    express.static(__dirname + "/public/login"));
+app.use("/admin",   CUser.AuthRoute,            express.static(__dirname + "/public/admin"));
 
 // Kiểm tra nếu người dùng vào home thì chuyển vào route app
-app.get("/", (req, res) => {
-   res.redirect("/app");
-});
+app.get("/", (req, res) => { res.redirect("/app"); });
 
+// Hàm lắng nghe web html theo port
 app.listen(PORT, (err) => {
     if (err !== undefined) {
         console.log(err);
