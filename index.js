@@ -42,6 +42,6 @@ app.listen(PORT, (err) => {
         console.log(err);
     }
     else {
-        console.log("Server listen port : " + PORT);
+        console.log("Server listen port  " + ip.address() + ": " + PORT);
     }
 });
