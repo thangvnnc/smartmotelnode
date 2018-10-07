@@ -1,0 +1,15 @@
+/*Custom by thang dev*/
+
+.main-panel>.content-login {
+    padding: 30px 30px 30px 30px;
+    min-height: calc(100vh - 70px);
+}
+
+.form-check-login {
+    margin-top: .5rem;
+    padding-left: 1.25rem;
+}
+
+.form-login> div> input {
+    font-size: 1em;
+}
