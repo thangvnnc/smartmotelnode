@@ -124,8 +124,6 @@ router.post("/forget", async (req, res) => {
         res.send(retValid);
         return;
     }
-
-    
 });
 
 router.post("/changePassword", CUser.AuthApi, async (req, res) => {

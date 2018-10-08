@@ -1,7 +1,7 @@
-let urlApi = "/apiv1";
+const urlApi = "/apiv1";
 
 /**
  * Group users
  */
-let urlUsers = urlApi + "/users";
-let urlReqLogin = urlUsers + "/login";
+const urlUsers = urlApi + "/users";
+const urlReqLogin = urlUsers + "/login";

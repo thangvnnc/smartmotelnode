@@ -121,12 +121,9 @@
                                 <li class="nav-link">
                                     <a href="javascript:void(0)" class="nav-item dropdown-item">Profile</a>
                                 </li>
-                                <li class="nav-link">
-                                    <a href="javascript:void(0)" class="nav-item dropdown-item">Settings</a>
-                                </li>
                                 <li class="dropdown-divider"></li>
                                 <li class="nav-link">
-                                    <a href="javascript:void(0)" class="nav-item dropdown-item">Log out</a>
+                                    <a href="javascript:void(0)" class="nav-item dropdown-item logout-btn">Đăng xuất</a>
                                 </li>
                             </ul>
                         </li>
@@ -191,7 +188,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row nav-item-content nav-item-group">
+            <div class="row nav-item-content nav-item-group" style="display: none">
                 <div class="col-md-12">
                     <div class="card ">
                         <div class="card-header">
@@ -199,7 +196,7 @@
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table class="table tablesorter ">
+                                <table class="table tablesorter">
                                     <thead class=" text-primary">
                                     <tr>
                                         <th>
@@ -325,6 +322,7 @@
 <script src="../common/js/black-dashboard.min.js?v=1.0.0"></script>
 <!-- Black Dashboard DEMO methods, don't include it in your project! -->
 <script src="../app/demo/demo.js"></script>
+<script src="../common/js/modal.js"></script>
 <script src="js/admin.js"></script>
 <script>
     $(document).ready(function () {
@@ -422,8 +420,6 @@
 
                     white_color = true;
                 }
-
-
             });
 
             $('.light-badge').click(function () {
